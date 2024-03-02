@@ -11,3 +11,5 @@ Download GPTQ models and place the in the `/models` directory. Appropriately ref
 ## Using the API
 
 The API can keep seperately keep track of multiple conversations and their corresponding history. Each conversation is identified by the user, and their respective passwords in the `userlist.txt file.
+
+Will add API docs shortly.
