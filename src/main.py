@@ -1,4 +1,5 @@
 import os
+import yaml
 import json
 import logging
 import re
@@ -160,19 +161,17 @@ if __name__ == '__main__':
         w1 = "./models/TheBloke_Llama-2-13B-chat-GPTQ" , 
         w2 = "gptq_model-4bit-128g" 
         ).load_llm()
+    
+    with open(f'./bot.yaml','r') as f:
+        bot_file = yaml.safe_load(f)
 
-    char_name = "Bot"
+    char_name = bot_file["name"]
     
-    char_pers = """
-    Bot is a an AI assistant, designed to help users with their queries and problems. He is a friendly and helpful AI, and is always ready to help users with their problems.
-    """
+    char_pers = bot_file["personality"]
     
-    char_location = """
-    """
+    char_location = bot_file["location"]
     
-    char_activity = """
-    Bot is currently helping a user with their query.
-    """
+    char_activity = bot_file["activity"]
 
     bot = ConversationCharacter(char_pers , char_name , char_location , char_activity , local_llm)
     reasoning_chain = ReasoningChain(char_name , local_llm)
