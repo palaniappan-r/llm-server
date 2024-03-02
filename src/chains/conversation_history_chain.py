@@ -50,7 +50,7 @@ class ConversationCharacter:
         These are the list of actions you are supposed to perform:
         {{char_action}}
 
-        Engage in converstaion with the user
+        Engage in conversation with the user
         """
 
         return char_prompt , char_instr
