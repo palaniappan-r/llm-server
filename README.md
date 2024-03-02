@@ -1,4 +1,4 @@
-A basic API serving LangChain chains using the Python `http-lib`
+A basic API serving LangChain chains using the Python HTTP Server.
 
 ## Initial Setup
 
