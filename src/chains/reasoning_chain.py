@@ -8,9 +8,9 @@ class ReasoningChain:
     def __init__(self, char_name , local_llm):
         self.char_name = char_name
         self.local_llm = local_llm
-        self.coa_prompt = self.initialize_coa_prompt()
+        self.reasoning_prompt = self.initialize_reasoning_prompt()
         self.reasoning_chain = None
-        self.create_reasoning_chain()
+
 
     def initialize_reasoning_prompt(self):
         p_template = f""" {B_INST}
@@ -30,16 +30,8 @@ class ReasoningChain:
         
         return char_prompt
 
-
-    def create_reasoning_chain(self):
-        self.reasoning_chain = ReasoningChain(
-            llm = self.local_llm, 
-            prompt = self.initialize_coa_prompt(),
-            verbose = False
-        )
-
     def invoke(self, u_input):
-        output = self.local_llm(self.coa_prompt.format(   
+        output = self.local_llm(self.reasoning_prompt.format(   
             input = u_input
         ))
 
