@@ -98,7 +98,7 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
             print("\nPrompting Chain :" , conv_id)
             
             actions = reasoning_chain.invoke(user_input)
-            ai_response = chainDict[conv_id].run({"input":user_input , "char_action":actions[0]})
+            ai_response = chainDict[conv_id].run({"input":user_input , "char_action":actions})
 
             if(f"{char_name}:" in ai_response):
                 ai_response = ai_response.split(f"{char_name}:")[1]
